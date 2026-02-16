@@ -23,18 +23,22 @@
                                     $halfStar = $vote - $fullStars > 0 ? 1 : 0;
                                     $emptyStars = $maxStars - $fullStars - $halfStar;
                                 @endphp
-                                <hr>
+                                <div class="card-footer">
+                                    @for ($i = 0; $i < $fullStars; $i++)
+                                        <span style="color: #0070f3; font-size: 1.1em;"><i
+                                                class="bi bi-star-fill"></i></span>
+                                    @endfor
+                                    @if ($halfStar)
+                                        <span style="color: #0070f3; font-size: 1.1em;"><i
+                                                class="bi bi-star-half"></i></span>
+                                    @endif
+                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                        <span style="color: #0070f3; font-size: 1.1em;"><i class="bi bi-star"></i></span>
+                                    @endfor
+                                    <span style="color: #0070f3; font-size: 0.9em;">({{ $movie['vote'] }})</span>
+                                </div>
 
-                                @for ($i = 0; $i < $fullStars; $i++)
-                                    <span style="color: #0070f3; font-size: 1.1em;"><i class="bi bi-star-fill"></i></span>
-                                @endfor
-                                @if ($halfStar)
-                                    <span style="color: #0070f3; font-size: 1.1em;"><i class="bi bi-star-half"></i></span>
-                                @endif
-                                @for ($i = 0; $i < $emptyStars; $i++)
-                                    <span style="color: #0070f3; font-size: 1.1em;"><i class="bi bi-star"></i></span>
-                                @endfor
-                                <span style="color: #0070f3; font-size: 0.9em;">({{ $movie['vote'] }})</span>
+
 
 
                             </div>
